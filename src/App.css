@@ -1,13 +1,47 @@
 .effect{
   overflow:hidden;
+  /* margin-top: 40vh; */
+  
 }
-.effect  :hover{
+.effect:hover{
   box-shadow: 5px 5px 10px lightgrey;
-
+  
 }
 .main{
   margin: 0px 7vw;
 }
-.effect :hover .card-body{
-  box-shadow: none;
+.background{
+  background-image: url('./bannerbackground.png');
+  background-position: cover cover; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 0;
+  height: 80vh;
+}
+/* h5{
+  transition: 0s 3s;
+} */
+.active{
+  color: red;
+  text-decoration: underline;
+ 
+  
+}
+.focus{
+  border-radius: 30px;
+  width: 30vw;
+  padding: 8px;
+  margin-left: 35vw;
+  z-index: -1;
+  border: none;
+  height: 6vh;
+}
+
+.focus:focus{
+  outline: none;
+}
+.style{
+  
+  border: 1px circular black;
+  color: red;
 }

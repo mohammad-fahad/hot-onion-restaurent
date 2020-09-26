@@ -1,53 +1,67 @@
-import React from 'react';
-import { Card } from 'react-bootstrap';
-import breakfast1 from '../Breakfast/breakfast1.png';
-import breakfast2 from '../Breakfast/breakfast2.png';
-import breakfast3 from '../Breakfast/breakfast3.png';
-import breakfast4 from '../Breakfast/breakfast4.png';
-import breakfast5 from '../Breakfast/breakfast5.png';
-import breakfast6 from '../Breakfast/breakfast6.png';
+import React, { useEffect, useState } from 'react';
+import { Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import '../App.css';
+import meals from '../fakeData/fakeData';
+import WhyUs from '../WhyUs/WhyUs';
 
-const FoodItems = () => {
-    const breakfast = [
-        { photo: breakfast1, name: 'Eggs Benedict', details: 'Too good to be missed', price: 8.99 },
-        { photo: breakfast2, name: 'Breakfast sandwich', details: 'Too good to be missed', price: 9.99 },
-        { photo: breakfast3, name: 'Baked Chicken', details: 'Too good to be missed', price: 10.99 },
-        { photo: breakfast4, name: 'Bagel and cream cheese', details: 'Too good to be missed', price: 6.99 },
-        { photo: breakfast5, name: 'Full Breakfast Fried Egg Toast Brunch', details: 'Too good to be missed', price: 3.99 },
-        { photo: breakfast6, name: 'Toast Croissant Fried egg', details: 'Too good to be missed', price: 19.99 }
-    ];
+console.log();
+const FoodItems = () => {   
+const [food, setFoods] = useState([]);
+const [type, setType] = useState("Breakfast");
+
+
+
+
+useEffect (() => { 
+    const item = meals.filter(fd => fd.type.toLowerCase() === type.toLowerCase());
+    setFoods(item);
+    },[type])
 
 
     return (
-        <div className="justify-content-spacing d-inline-flex">
-            <div className="d-inline-block flex flex-wrap text-center">
-                <p >Breakfast</p> <br />
-                <p >Lunch</p> <br />
-                <p >Dinner</p> <br />
+        <div className="p-5">
+            <div className="d-flex justify-content-around container mb-5">
+                <h5 className={type === 'Breakfast' ? 'active m-5' : 'm-5'} style={{cursor: 'pointer'}} onClick={() => setType("Breakfast")}>Breakfast</h5> <br /> <br/>
+                <h5 className={type  === 'lunch' ? 'active m-5' : 'm-5'} style={{cursor: 'pointer'}} onClick={() => setType("lunch")}>Lunch</h5> <br /> <br/>
+                <h5 className={type  === 'Dinner' ? 'active m-5' : 'm-5'} style={{cursor: 'pointer'}} onClick={() => setType("Dinner")}>Dinner</h5> <br />              
+
             </div>
-            <div className=" p-5 main ">
-
+            <div className="row justify-content-center" style={{marginLeft:'8%'}}>
+         
                 {
-                    breakfast.map(br =>
-
-                        <Card className="d-inline-flex m-5 p-5 flex-wrap justify-content-center effect " style={{ width: '20vw', border: 'none' }}>
+                    food.map(br =>
+                   
+                        <div className="col-md-4 justify-content-center" key={br.id}>
+                             <div>
+                        <Card className=" effect "  style={{ width: '20vw', border: 'none'}}>
+                            <Link to ={`/foodDetails/${br.id}`} style={{textDecoration: 'none'}}>
                             <div>
-                                <Card.Img variant="top" src={br.photo} />
-                                <Card.Body className="text-center">
+                                <Card.Img variant="top" src={br.images} />
+                                <Card.Body className="text-center text-dark">
                                     <Card.Title>{br.name}</Card.Title>
-                                    <Card.Text>
-                                        <p>{br.details}</p>
-                                        <h4>${br.price}</h4>
+                                    <Card.Text>                                        
+                                        {br.shortDescription}
+                                        <br/>
+                                        <strong>${br.price}</strong>                                       
+                                        
                                     </Card.Text>
                                 </Card.Body>
                             </div>
+                            </Link>
 
-
-                        </Card>)
+                            
+                        </Card> <br/>
+                        </div>
+                    </div>
+                         )
 
                 }
-
+                <br/>
+                <Button variant="secondary" className="disabled mt-5">Check Out Your Food</Button>
             </div>
+            
+            <WhyUs />
         </div>
     );
 

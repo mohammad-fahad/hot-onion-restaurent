@@ -1,0 +1,9 @@
+.first {
+    background-image: url("../bannerbackground.png");    
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; 
+    margin-top: 0px;
+    height: 100vh;
+    padding-top: 4vh;
+}
