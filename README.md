@@ -1,7 +1,7 @@
 # Red Onion 
 A full-stack restaurant app where you can order your favorite food from the menu. You have options for breakfast, lunch, and dinner.  And enjoy the most delicious yummy food.
 
-##[LIVE](https://hot-onion-restaurant-f.web.app/)
+## [LIVE](https://hot-onion-restaurant-f.web.app/)
 
 ## Features
 
