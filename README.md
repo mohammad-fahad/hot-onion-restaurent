@@ -17,5 +17,3 @@ A full-stack restaurant app where you can order your favorite food from the menu
 - Node.js
 - MongoDB
 - Firebase Authentication
-- Stripe.js
-- Heroku
