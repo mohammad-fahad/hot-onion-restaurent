@@ -7,7 +7,7 @@ A full-stack restaurant app where you can order your favorite food from the menu
 
 - Order food from the menu
 - Sign Up to place order
-- Pay online using your credit card
+
 
 ## Technology
 
